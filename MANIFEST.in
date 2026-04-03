@@ -1,6 +1,4 @@
 include README.md
 include requirements.txt
-recursive-include erptronix_premium_ui/public *
-recursive-include erptronix_premium_ui/templates *
-recursive-include erptronix_premium_ui/www *
-recursive-include erptronix_premium_ui/config *
+recursive-include erptronix_premium_ui *.py
+recursive-include public *.js *.scss *.css *.svg *.png *.jpg *.jpeg *.gif *.webp

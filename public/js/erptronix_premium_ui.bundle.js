@@ -1,6 +1,7 @@
 (function () {
   const STORAGE_KEY = "erptronix-premium-dark";
   const TOGGLE_CLASS = "erptronix-theme-toggle";
+  let observerStarted = false;
 
   function isDarkMode() {
     return localStorage.getItem(STORAGE_KEY) === "1";
@@ -26,6 +27,7 @@
   function getNavbarContainer() {
     return (
       document.querySelector(".navbar .container") ||
+      document.querySelector(".navbar > .container-fluid") ||
       document.querySelector("header .navbar .container") ||
       document.querySelector(".navbar")
     );
@@ -47,52 +49,51 @@
     if (!navbar) return;
 
     let btn = navbar.querySelector(`.${TOGGLE_CLASS}`);
-
     if (!btn) {
       btn = createToggleButton();
       navbar.appendChild(btn);
     }
-
     updateToggleLabel();
   }
 
-  function initTheme() {
+  function safeRefresh() {
     applyTheme();
     ensureToggle();
   }
 
   function setupObservers() {
+    if (observerStarted) return;
+    observerStarted = true;
+
     const observer = new MutationObserver(() => {
       ensureToggle();
-      applyTheme();
+      document.body.classList.toggle("erptronix-dark", isDarkMode());
     });
 
     observer.observe(document.body, {
       childList: true,
-      subtree: true,
+      subtree: true
     });
   }
 
   function setupRouteHooks() {
-    if (window.frappe && frappe.router && frappe.router.on) {
+    if (window.frappe && frappe.router && typeof frappe.router.on === "function") {
       frappe.router.on("change", () => {
-        setTimeout(() => {
-          ensureToggle();
-          applyTheme();
-        }, 200);
+        setTimeout(safeRefresh, 200);
       });
     }
 
     document.addEventListener("page-change", () => {
-      setTimeout(() => {
-        ensureToggle();
-        applyTheme();
-      }, 200);
+      setTimeout(safeRefresh, 200);
+    });
+
+    window.addEventListener("hashchange", () => {
+      setTimeout(safeRefresh, 200);
     });
   }
 
   frappe.ready(() => {
-    initTheme();
+    safeRefresh();
     setupObservers();
     setupRouteHooks();
   });
