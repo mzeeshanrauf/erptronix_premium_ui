@@ -1,8 +1,10 @@
-# ERPTronix Premium UI v6
+# ERPTronix Premium UI v7 Final
 
 Professional ERPNext v15 theme with:
-- corrected section spacing
-- sidebar selected gradient like action button
-- branding in navbar/sidebar
-- favicon support
-- safer form spacing across site
+- balanced main content spacing
+- refined sidebar width
+- white selected sidebar icons
+- Quick Access cards matched to theme hover
+- ERPTronix branding in navbar/sidebar
+- favicon replacement
+- safer global spacing and form polish

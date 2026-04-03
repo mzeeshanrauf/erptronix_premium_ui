@@ -57,12 +57,7 @@
   }
 
   function replaceNavbarBrand() {
-    const selectors = [
-      ".navbar-home",
-      ".app-logo",
-      ".navbar-brand",
-      ".navbar .app-logo"
-    ];
+    const selectors = [".navbar-home", ".app-logo", ".navbar-brand", ".navbar .app-logo"];
     const host = document.querySelector(selectors.join(", "));
     if (!host) return;
 
@@ -70,8 +65,10 @@
     host.querySelectorAll("img").forEach(img => {
       if (!img.classList.contains("erptronix-brand-img")) img.style.display = "none";
     });
-    host.querySelectorAll(".hidden-xs, .app-logo-text, .navbar-brand-name").forEach(el => {
-      if (!el.classList.contains("erptronix-brand-text")) el.style.display = "none";
+    host.querySelectorAll(".hidden-xs, .app-logo-text, .navbar-brand-name, .app-logo-container").forEach(el => {
+      if (!el.classList.contains("erptronix-brand-text") && !el.classList.contains("erptronix-brand-badge")) {
+        el.style.display = "none";
+      }
     });
 
     let badge = host.querySelector(".erptronix-brand-badge");
@@ -123,6 +120,7 @@
         replaceNavbarBrand();
         replaceSidebarBrand();
         ensureToggle();
+        ensureFavicon();
       });
       observer.observe(document.body, { childList: true, subtree: true });
     }

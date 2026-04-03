@@ -27,7 +27,7 @@ body[data-route] {
     linear-gradient(180deg, var(--erpui-bg), var(--erpui-bg-2)) !important;
 }
 
-/* global breathing room */
+/* More balanced overall spacing */
 .page-container,
 .page-body,
 .layout-main,
@@ -35,11 +35,11 @@ body[data-route] {
   padding-top: 8px !important;
 }
 .layout-main-section-wrapper {
-  padding-left: 14px !important;
-  padding-right: 14px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
 }
 
-/* brand */
+/* Brand */
 .erptronix-brand-root {
   display: flex !important;
   align-items: center !important;
@@ -63,13 +63,13 @@ body[data-route] {
   letter-spacing: 0.2px;
 }
 .erptronix-side-brand-host {
-  padding: 4px 10px 10px 10px;
+  padding: 4px 8px 8px 8px;
 }
 .erptronix-side-brand {
-  padding: 8px 6px 12px 6px;
+  padding: 8px 4px 10px 4px;
 }
 
-/* main panels */
+/* Main panels */
 .page-head,
 .layout-main-section,
 .widget,
@@ -85,19 +85,26 @@ body[data-route] {
   box-shadow: var(--erpui-shadow) !important;
 }
 
-/* general form spacing */
+/* Increase visual gap for cards from grey background */
+.form-page .layout-main-section,
+.workspace-body .layout-main-section,
+.page-body .layout-main-section {
+  padding: 18px !important;
+}
+.form-page .form-section,
+.form-page .form-dashboard-section,
+.page-body .widget,
+.page-body .list-sidebar {
+  margin-bottom: 16px !important;
+}
+
+/* General form spacing */
 .form-page .layout-main-section,
 .form-page .page-head,
 .form-page .form-section,
 .form-page .section-body,
 .form-page .form-column {
   overflow: visible !important;
-}
-.form-page .layout-main-section {
-  padding: 20px !important;
-}
-.form-page .form-section {
-  margin: 0 0 18px 0 !important;
 }
 .form-page .section-body {
   padding: 18px 20px 20px 20px !important;
@@ -107,7 +114,7 @@ body[data-route] {
   padding-top: 2px !important;
 }
 
-/* labels and headings */
+/* Labels and headings */
 .form-section .section-head,
 .control-label,
 .form-dashboard-section .section-head,
@@ -121,7 +128,7 @@ h3, h4, h5 {
   padding: 14px 20px !important;
   margin-bottom: 0 !important;
   font-weight: 700 !important;
-  border-bottom: 1px solid rgba(220, 229, 242, 0.55);
+  border-bottom: 1px solid rgba(220, 229, 242, 0.30);
 }
 .control-label,
 .form-label {
@@ -144,7 +151,7 @@ a,
   color: var(--erpui-blue) !important;
 }
 
-/* dropdown clipping */
+/* Dropdown clipping */
 .layout-main-section,
 .form-section,
 .card,
@@ -181,7 +188,7 @@ a,
   line-height: 1.45 !important;
 }
 
-/* buttons */
+/* Buttons */
 .btn-primary {
   background: var(--erpui-action-gradient) !important;
   border: none !important;
@@ -195,7 +202,7 @@ a,
   border-radius: 12px !important;
 }
 
-/* inputs */
+/* Inputs */
 input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select,
@@ -221,7 +228,7 @@ select:focus,
   box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.10) !important;
 }
 
-/* checkbox */
+/* Checkbox */
 input[type="checkbox"] {
   width: 16px !important;
   height: 16px !important;
@@ -240,7 +247,7 @@ input[type="checkbox"] {
 .grid-row-check input[type="checkbox"],
 .row-check input[type="checkbox"] { margin: 0 !important; }
 
-/* child table */
+/* Child table */
 .grid-heading-row,
 .grid-body .row { min-height: 48px; }
 .grid-row .data-row,
@@ -261,14 +268,14 @@ input[type="checkbox"] {
 .grid-body { border-radius: 16px !important; }
 .grid-row-open { overflow: visible !important; }
 
-/* modal */
+/* Modal */
 .modal-content { overflow: visible !important; }
 .modal-header,
 .modal-footer { border-color: var(--erpui-line) !important; }
 .modal-body { padding: 18px 20px !important; }
 .modal .frappe-control { margin-bottom: 14px !important; }
 
-/* tabs */
+/* Tabs */
 .form-tabs .nav-link::after,
 .form-tabs-list .nav-link::after,
 .nav-tabs .nav-link::after {
@@ -295,7 +302,7 @@ input[type="checkbox"] {
 .form-tabs-list .form-tabs .nav-link:hover,
 .nav-tabs .nav-link:hover { background: #f3f7ff !important; }
 
-/* collapsible sections */
+/* Collapsible sections */
 .section-head,
 .collapsible-section .section-head,
 .form-section .section-head {
@@ -312,37 +319,18 @@ input[type="checkbox"] {
   padding: 0 !important;
 }
 .collapsible-section { margin-bottom: 18px !important; }
-
-/* Remove unwanted divider under collapsible title areas */
 .form-section > .section-head + .section-body,
 .form-dashboard-section > .section-head + .section-body {
   margin-top: 0 !important;
 }
 .form-section .section-head:empty,
-.section-head.empty-section {
-  display: none !important;
-}
+.section-head.empty-section { display: none !important; }
 
-/* more left spacing for form cards from page edge */
-.form-page .layout-main-section > .form-layout > .form-page,
-.form-page .layout-main-section > .row,
-.form-page .layout-main-section > .sections,
-.form-page .layout-main-section > .section-body {
-  margin-left: 0 !important;
-}
-.form-page .form-section,
-.form-page .form-dashboard-section,
-.form-page .grid-field,
-.form-page .section-body > .form-column {
-  margin-left: 4px !important;
-  margin-right: 4px !important;
-}
-
-/* Sidebar */
+/* Sidebar reduced a bit */
 .layout-side-section {
-  width: 320px !important;
-  min-width: 320px !important;
-  padding: 12px 14px !important;
+  width: 280px !important;
+  min-width: 280px !important;
+  padding: 12px 12px !important;
 }
 .desk-sidebar,
 .standard-sidebar,
@@ -350,10 +338,10 @@ input[type="checkbox"] {
 .standard-sidebar-item {
   display: flex !important;
   align-items: center !important;
-  min-height: 54px !important;
-  padding: 11px 18px !important;
-  margin: 8px 12px !important;
-  border-radius: 22px !important;
+  min-height: 52px !important;
+  padding: 10px 16px !important;
+  margin: 7px 10px !important;
+  border-radius: 20px !important;
   transition: .18s ease;
   color: var(--erpui-text) !important;
 }
@@ -365,7 +353,11 @@ input[type="checkbox"] {
 .standard-sidebar-item:hover a,
 .standard-sidebar-item:hover .sidebar-item-label,
 .standard-sidebar-item:hover svg,
-.standard-sidebar-item:hover .icon { color: #fff !important; stroke: #fff !important; }
+.standard-sidebar-item:hover .icon {
+  color: #fff !important;
+  stroke: #fff !important;
+  fill: #fff !important;
+}
 .standard-sidebar .standard-sidebar-item.selected,
 .standard-sidebar-item.selected {
   background: var(--erpui-action-gradient) !important;
@@ -380,18 +372,21 @@ input[type="checkbox"] {
 .standard-sidebar-item.selected .icon {
   color: #fff !important;
   stroke: #fff !important;
+  fill: #fff !important;
 }
 .standard-sidebar-item .item-anchor,
 .standard-sidebar-item a { padding-left: 6px !important; }
 .standard-sidebar-item.selected::before,
 .standard-sidebar .standard-sidebar-item.selected::before { content: none !important; }
 
-/* Workspace links */
+/* Quick Access cards match theme better */
 .shortcut-widget-box,
 .widget.shortcut-widget-box,
 .link-item,
 .widget-links .link-item,
-.quick-list-item { border-radius: 18px !important; }
+.quick-list-item {
+  border-radius: 18px !important;
+}
 .widget-links .link-item,
 .shortcut-widget-box {
   min-height: 54px !important;
@@ -400,11 +395,23 @@ input[type="checkbox"] {
   padding: 10px 16px !important;
   border: 1px solid var(--erpui-line) !important;
   background: var(--erpui-panel) !important;
+  transition: all 0.25s ease !important;
 }
 .widget-links .link-item:hover,
-.shortcut-widget-box:hover { background: var(--erpui-hover) !important; }
+.shortcut-widget-box:hover {
+  background: var(--erpui-action-gradient) !important;
+  color: #fff !important;
+  box-shadow: 0 12px 30px rgba(79,124,255,0.25) !important;
+  transform: translateY(-2px);
+}
+.widget-links .link-item:hover *,
+.shortcut-widget-box:hover * {
+  color: #fff !important;
+  stroke: #fff !important;
+  fill: #fff !important;
+}
 
-/* list sidebar */
+/* List sidebar */
 .list-sidebar { padding: 16px !important; }
 .list-sidebar .form-group,
 .list-sidebar .frappe-control,
@@ -433,7 +440,7 @@ input[type="checkbox"] {
 .indicator,
 .ellipsis-pill { border-radius: 999px !important; }
 
-/* dark mode */
+/* Dark mode */
 body.erptronix-dark {
   --erpui-bg: #0c1426;
   --erpui-bg-2: #121d34;
@@ -511,5 +518,5 @@ body.erptronix-dark .shortcut-widget-box {
 }
 body.erptronix-dark .widget-links .link-item:hover,
 body.erptronix-dark .shortcut-widget-box:hover {
-  background: #1a2b4d !important;
+  background: var(--erpui-action-gradient) !important;
 }
