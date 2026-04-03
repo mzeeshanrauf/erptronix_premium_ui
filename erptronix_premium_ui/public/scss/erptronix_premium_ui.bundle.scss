@@ -18,7 +18,6 @@
   --erpui-radius-sm: 10px;
 }
 
-/* Background */
 body[data-route] {
   background:
     radial-gradient(circle at 12% 18%, rgba(79, 124, 255, 0.07), transparent 24%),
@@ -26,7 +25,7 @@ body[data-route] {
     linear-gradient(180deg, var(--erpui-bg), var(--erpui-bg-2)) !important;
 }
 
-/* Main panels */
+/* main panels */
 .page-head,
 .layout-main-section,
 .widget,
@@ -42,7 +41,7 @@ body[data-route] {
   box-shadow: var(--erpui-shadow) !important;
 }
 
-/* Avoid clipping dropdowns */
+/* dropdown clipping fix */
 .layout-main-section,
 .form-section,
 .card,
@@ -61,7 +60,6 @@ body[data-route] {
   overflow: visible !important;
 }
 
-/* Autocomplete / link dropdown visibility */
 .awesomplete > ul,
 .ui-autocomplete,
 .autocomplete-suggestions,
@@ -82,14 +80,12 @@ body[data-route] {
   line-height: 1.45 !important;
 }
 
-/* Typography */
+/* typography */
 .page-title .title-text,
 .ellipsis.title-text,
 .form-section .section-head,
 .widget-head .widget-title,
-h3,
-h4,
-h5 {
+h3, h4, h5 {
   color: var(--erpui-text) !important;
 }
 
@@ -107,7 +103,7 @@ a,
   color: var(--erpui-blue) !important;
 }
 
-/* Buttons */
+/* buttons */
 .btn-primary {
   background: linear-gradient(135deg, var(--erpui-purple), var(--erpui-blue), var(--erpui-cyan)) !important;
   border: none !important;
@@ -122,8 +118,8 @@ a,
   border-radius: 12px !important;
 }
 
-/* Inputs: professional padding and height */
-input,
+/* inputs - exclude checkbox/radio */
+input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select,
 .control-input,
@@ -141,7 +137,7 @@ textarea {
   padding-top: 12px !important;
 }
 
-input:focus,
+input:not([type="checkbox"]):not([type="radio"]):focus,
 textarea:focus,
 select:focus,
 .control-input:focus,
@@ -152,14 +148,28 @@ select:focus,
   box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.10) !important;
 }
 
-/* Link fields specifically */
-.link-field .control-input,
-[data-fieldtype="Link"] input,
-.awesomplete > input {
-  padding-left: 14px !important;
+/* normal checkbox size */
+input[type="checkbox"] {
+  width: 16px !important;
+  height: 16px !important;
+  min-height: auto !important;
+  padding: 0 !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 4px !important;
+}
+.grid-row-check,
+.row-check {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.grid-row-check input[type="checkbox"],
+.row-check input[type="checkbox"] {
+  margin: 0 !important;
 }
 
-/* Child table / grid */
+/* child table */
 .grid-heading-row,
 .grid-body .row {
   min-height: 48px;
@@ -172,7 +182,7 @@ select:focus,
 }
 
 .grid-body .form-control,
-.grid-body input,
+.grid-body input:not([type="checkbox"]):not([type="radio"]),
 .grid-body .awesomplete > input {
   min-height: 40px !important;
   padding-left: 14px !important;
@@ -188,31 +198,64 @@ select:focus,
 .grid-body {
   border-radius: 16px !important;
 }
-
 .grid-row-open {
   overflow: visible !important;
 }
 
-/* Modal polish */
+/* modal polish */
 .modal-content {
   overflow: visible !important;
 }
-
 .modal-header,
 .modal-footer {
   border-color: var(--erpui-line) !important;
 }
-
 .modal-body {
   padding: 18px 20px !important;
 }
-
 .modal .frappe-control {
   margin-bottom: 14px !important;
 }
 
-/* Sidebar / desktop menu */
-.layout-side-section,
+/* modern form tabs */
+.form-tabs .nav-link::after,
+.form-tabs-list .nav-link::after,
+.nav-tabs .nav-link::after {
+  display: none !important;
+}
+
+.form-tabs .nav-link,
+.form-tabs-list .form-tabs .nav-link,
+.nav-tabs .nav-link {
+  border-radius: 12px !important;
+  padding: 8px 16px !important;
+  margin-right: 6px !important;
+  transition: 0.2s ease;
+  border: none !important;
+  background: transparent !important;
+}
+
+.form-tabs .nav-link.active,
+.form-tabs-list .form-tabs .nav-link.active,
+.nav-tabs .nav-link.active {
+  background: linear-gradient(135deg, #eef2ff, #e6f4ff) !important;
+  color: var(--erpui-blue) !important;
+  box-shadow: inset 0 0 0 1px rgba(79, 124, 255, 0.12) !important;
+}
+
+.form-tabs .nav-link:hover,
+.form-tabs-list .form-tabs .nav-link:hover,
+.nav-tabs .nav-link:hover {
+  background: #f3f7ff !important;
+}
+
+/* sidebar */
+.layout-side-section {
+  width: 320px !important;
+  min-width: 320px !important;
+  padding: 12px 14px !important;
+}
+
 .desk-sidebar,
 .standard-sidebar,
 .standard-sidebar-section {
@@ -222,10 +265,10 @@ select:focus,
 .standard-sidebar-item {
   display: flex !important;
   align-items: center !important;
-  min-height: 52px !important;
-  padding: 10px 14px !important;
-  margin: 6px 10px !important;
-  border-radius: 18px !important;
+  min-height: 54px !important;
+  padding: 11px 16px !important;
+  margin: 7px 10px !important;
+  border-radius: 20px !important;
   transition: .18s ease;
   color: var(--erpui-text) !important;
 }
@@ -243,22 +286,15 @@ select:focus,
 
 .standard-sidebar-item .item-anchor,
 .standard-sidebar-item a {
-  padding-left: 4px !important;
+  padding-left: 6px !important;
 }
 
-.standard-sidebar .standard-sidebar-label,
-.sidebar-item-label,
-.standard-sidebar-item .sidebar-item-label {
-  font-weight: 500;
-}
-
-/* Fix selected item left-cut issue */
 .standard-sidebar-item.selected::before,
 .standard-sidebar .standard-sidebar-item.selected::before {
   content: none !important;
 }
 
-/* Workspace shortcut links */
+/* workspace links */
 .shortcut-widget-box,
 .widget.shortcut-widget-box,
 .link-item,
@@ -282,16 +318,49 @@ select:focus,
   background: var(--erpui-hover) !important;
 }
 
-/* Pills / badges */
-.nav-tabs .nav-link,
-.form-tabs-list .form-tabs .nav-link,
+/* list sidebar spacing */
+.list-sidebar {
+  padding: 16px !important;
+}
+
+.list-sidebar .form-group,
+.list-sidebar .frappe-control,
+.list-sidebar .list-filters,
+.list-sidebar .filter-area,
+.list-sidebar .sidebar-section {
+  margin-bottom: 14px !important;
+}
+
+.list-sidebar .form-control,
+.list-sidebar select,
+.list-sidebar input:not([type="checkbox"]):not([type="radio"]),
+.list-sidebar .control-input {
+  width: 100% !important;
+  margin: 6px 0 0 0 !important;
+}
+
+.list-sidebar a,
+.list-sidebar .small,
+.list-sidebar label,
+.list-sidebar .sidebar-label {
+  display: inline-block;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+
+.list-sidebar .btn,
+.list-sidebar button {
+  margin-top: 8px !important;
+}
+
+/* pills */
 .indicator-pill,
 .indicator,
 .ellipsis-pill {
   border-radius: 999px !important;
 }
 
-/* Dark mode */
+/* dark mode */
 body.erptronix-dark {
   --erpui-bg: #0c1426;
   --erpui-bg-2: #121d34;
@@ -349,7 +418,7 @@ body.erptronix-dark .help-box {
   color: var(--erpui-muted) !important;
 }
 
-body.erptronix-dark input,
+body.erptronix-dark input:not([type="checkbox"]):not([type="radio"]),
 body.erptronix-dark textarea,
 body.erptronix-dark select,
 body.erptronix-dark .control-input,
