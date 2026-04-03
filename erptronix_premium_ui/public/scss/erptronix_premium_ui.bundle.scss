@@ -1,87 +1,349 @@
 :root {
   --erp-premium-bg: #f3f7ff;
-  --erp-premium-panel: rgba(255,255,255,.92);
+  --erp-premium-bg-2: #eef4ff;
+  --erp-premium-panel: rgba(255, 255, 255, 0.92);
+  --erp-premium-panel-solid: #ffffff;
   --erp-premium-text: #152033;
   --erp-premium-muted: #5f6f89;
-  --erp-premium-line: rgba(145,165,205,.22);
+  --erp-premium-line: rgba(145, 165, 205, 0.22);
+
   --erp-premium-blue: #4f7cff;
   --erp-premium-cyan: #22c7f2;
   --erp-premium-purple: #8b5cf6;
   --erp-premium-pink: #ec4899;
   --erp-premium-green: #10b981;
-  --erp-premium-shadow: 0 18px 60px rgba(31, 51, 92, .10);
+  --erp-premium-orange: #f59e0b;
+  --erp-premium-red: #ef4444;
+
+  --erp-premium-shadow: 0 18px 60px rgba(31, 51, 92, 0.1);
+  --erp-premium-radius-lg: 18px;
+  --erp-premium-radius-md: 14px;
 }
 
-body[data-route], .layout-main-section {
+/* ---------- Global background ---------- */
+
+body[data-route],
+.layout-main-section {
   background:
-    radial-gradient(circle at 10% 20%, rgba(79,124,255,.10), transparent 24%),
-    radial-gradient(circle at 90% 10%, rgba(236,72,153,.08), transparent 22%),
-    linear-gradient(180deg, #f7faff, #eef4ff);
+    radial-gradient(circle at 10% 20%, rgba(79, 124, 255, 0.1), transparent 24%),
+    radial-gradient(circle at 90% 10%, rgba(236, 72, 153, 0.08), transparent 22%),
+    linear-gradient(180deg, var(--erp-premium-bg), var(--erp-premium-bg-2)) !important;
 }
 
-.navbar, .layout-side-section, .desk-sidebar, .layout-main-section-wrapper {
+/* ---------- Transparent wrappers ---------- */
+
+.navbar,
+.layout-side-section,
+.desk-sidebar,
+.layout-main-section-wrapper {
   background: transparent !important;
 }
 
-.widget, .standard-sidebar-item, .number-widget-box, .report-summary, .form-dashboard-section,
-.list-row, .section-body, .form-section, .form-column, .dashboard-section,
-.page-head, .page-form, .layout-main-section, .card, .modal-content,
-.ql-snow, .frappe-control, .control-input, .control-value,
-.list-sidebar, .kanban-board, .calendar, .dt-scrollable, .result {
-  border-radius: 18px !important;
-}
+/* ---------- Main glass cards ---------- */
 
-.page-head, .layout-main-section, .form-section, .widget, .card, .modal-content,
-.list-sidebar, .dt-scrollable, .kanban-board, .report-summary, .number-widget-box {
+.page-head,
+.layout-main-section,
+.form-section,
+.widget,
+.card,
+.modal-content,
+.list-sidebar,
+.dt-scrollable,
+.kanban-board,
+.report-summary,
+.number-widget-box,
+.form-dashboard-section,
+.section-body {
   background: var(--erp-premium-panel) !important;
   border: 1px solid var(--erp-premium-line) !important;
+  border-radius: var(--erp-premium-radius-lg) !important;
   box-shadow: var(--erp-premium-shadow) !important;
   backdrop-filter: blur(16px);
 }
 
-.standard-sidebar .standard-sidebar-item.selected,
-.standard-sidebar-item:hover,
+/* ---------- Rounded UI ---------- */
+
+.widget,
+.number-widget-box,
+.report-summary,
+.form-dashboard-section,
+.section-body,
+.form-section,
+.form-column,
+.dashboard-section,
+.page-head,
+.page-form,
+.layout-main-section,
+.card,
+.modal-content,
+.list-sidebar,
+.dt-scrollable,
+.kanban-board,
+input,
+textarea,
+select,
+.control-input,
+.input-with-feedback,
+.awesomplete > input,
+.btn {
+  border-radius: var(--erp-premium-radius-md) !important;
+}
+
+/* ---------- Typography ---------- */
+
+.page-title .title-text,
+.ellipsis.title-text,
+h3,
+h4,
+.form-section .section-head,
 .widget-head .widget-title,
-a, .text-primary {
-  color: var(--erp-premium-blue) !important;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--erp-premium-purple), var(--erp-premium-blue), var(--erp-premium-cyan)) !important;
-  border: none !important;
-  box-shadow: 0 16px 32px rgba(79,124,255,.22) !important;
-}
-
-.page-title .title-text, .ellipsis.title-text, h3, h4, .form-section .section-head {
+.modal-title,
+.control-label,
+.form-label,
+.list-row-head,
+.dt-cell__content {
   color: var(--erp-premium-text) !important;
 }
 
-.text-muted, .sidebar-label, .form-message, .help-box, .comment-content {
+.text-muted,
+.sidebar-label,
+.form-message,
+.help-box,
+.comment-content,
+.text-extra-muted,
+.text-medium {
   color: var(--erp-premium-muted) !important;
 }
 
-input, textarea, select, .control-input, .input-with-feedback, .awesomplete > input {
+/* ---------- Links ---------- */
+
+a,
+.text-primary,
+.widget-head .widget-title a {
+  color: var(--erp-premium-blue) !important;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--erp-premium-purple),
+    var(--erp-premium-blue),
+    var(--erp-premium-cyan)
+  ) !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: 0 16px 32px rgba(79, 124, 255, 0.22) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  color: #fff !important;
+  opacity: 0.96;
+}
+
+.btn-default,
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid var(--erp-premium-line) !important;
+  color: var(--erp-premium-text) !important;
+}
+
+/* ---------- Sidebar ---------- */
+
+.standard-sidebar-item {
+  border-radius: 14px !important;
+  margin: 4px 8px !important;
+  transition: all 0.2s ease;
+}
+
+.standard-sidebar-item:hover {
+  background: rgba(79, 124, 255, 0.08) !important;
+  color: var(--erp-premium-blue) !important;
+}
+
+.standard-sidebar .standard-sidebar-item.selected,
+.standard-sidebar-item.selected {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.14),
+    rgba(79, 124, 255, 0.14),
+    rgba(34, 199, 242, 0.14)
+  ) !important;
+  color: var(--erp-premium-blue) !important;
   border-radius: 14px !important;
 }
 
-.erptronix-dark, .erptronix-dark body {
-  --erp-premium-panel: rgba(16,27,49,.92);
-  --erp-premium-text: #ebf3ff;
-  --erp-premium-muted: #9db0d1;
-  --erp-premium-line: rgba(122,146,192,.16);
+/* ---------- Inputs ---------- */
+
+input,
+textarea,
+select,
+.control-input,
+.input-with-feedback,
+.awesomplete > input {
+  background: rgba(255, 255, 255, 0.72) !important;
+  border: 1px solid var(--erp-premium-line) !important;
+  color: var(--erp-premium-text) !important;
+  box-shadow: none !important;
 }
 
-.erptronix-dark body[data-route], .erptronix-dark .layout-main-section {
+input:focus,
+textarea:focus,
+select:focus,
+.control-input:focus,
+.input-with-feedback:focus,
+.awesomplete > input:focus {
+  border-color: rgba(79, 124, 255, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.12) !important;
+}
+
+/* ---------- Tables / list ---------- */
+
+.list-row-container,
+.list-row,
+.result,
+.dt-row {
+  border-radius: 12px !important;
+}
+
+.dt-scrollable .dt-cell {
+  background: transparent !important;
+}
+
+.list-row:hover,
+.dt-row:hover {
+  background: rgba(79, 124, 255, 0.04) !important;
+}
+
+/* ---------- Navbar / page actions ---------- */
+
+.navbar .navbar-nav a,
+.navbar .dropdown-toggle,
+.page-actions .btn,
+.menu-btn-group .btn {
+  border-radius: 12px !important;
+}
+
+/* ---------- Dark mode ---------- */
+
+body.erptronix-dark {
+  --erp-premium-bg: #07111f;
+  --erp-premium-bg-2: #0b1830;
+  --erp-premium-panel: rgba(16, 27, 49, 0.92);
+  --erp-premium-panel-solid: #101b31;
+  --erp-premium-text: #ebf3ff;
+  --erp-premium-muted: #9db0d1;
+  --erp-premium-line: rgba(122, 146, 192, 0.16);
+  --erp-premium-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+body.erptronix-dark[data-route],
+body.erptronix-dark .layout-main-section {
   background:
-    radial-gradient(circle at 10% 20%, rgba(79,124,255,.12), transparent 24%),
-    radial-gradient(circle at 90% 10%, rgba(236,72,153,.10), transparent 22%),
+    radial-gradient(circle at 10% 20%, rgba(79, 124, 255, 0.12), transparent 24%),
+    radial-gradient(circle at 90% 10%, rgba(236, 72, 153, 0.1), transparent 22%),
     linear-gradient(180deg, #07111f, #0b1830) !important;
 }
 
-.erptronix-dark .page-head, .erptronix-dark .layout-main-section, .erptronix-dark .form-section,
-.erptronix-dark .widget, .erptronix-dark .card, .erptronix-dark .modal-content,
-.erptronix-dark .list-sidebar, .erptronix-dark .dt-scrollable, .erptronix-dark .kanban-board,
-.erptronix-dark .report-summary, .erptronix-dark .number-widget-box {
+body.erptronix-dark .page-head,
+body.erptronix-dark .layout-main-section,
+body.erptronix-dark .form-section,
+body.erptronix-dark .widget,
+body.erptronix-dark .card,
+body.erptronix-dark .modal-content,
+body.erptronix-dark .list-sidebar,
+body.erptronix-dark .dt-scrollable,
+body.erptronix-dark .kanban-board,
+body.erptronix-dark .report-summary,
+body.erptronix-dark .number-widget-box,
+body.erptronix-dark .form-dashboard-section,
+body.erptronix-dark .section-body {
   background: var(--erp-premium-panel) !important;
   color: var(--erp-premium-text) !important;
+  border-color: var(--erp-premium-line) !important;
+}
+
+body.erptronix-dark,
+body.erptronix-dark .layout-main-section,
+body.erptronix-dark .page-container,
+body.erptronix-dark .desk-container,
+body.erptronix-dark .widget,
+body.erptronix-dark .form-section,
+body.erptronix-dark .card,
+body.erptronix-dark .dt-scrollable,
+body.erptronix-dark .list-row,
+body.erptronix-dark .dt-cell__content,
+body.erptronix-dark .control-label,
+body.erptronix-dark .form-label,
+body.erptronix-dark h1,
+body.erptronix-dark h2,
+body.erptronix-dark h3,
+body.erptronix-dark h4,
+body.erptronix-dark h5,
+body.erptronix-dark h6,
+body.erptronix-dark .page-title .title-text,
+body.erptronix-dark .ellipsis.title-text {
+  color: var(--erp-premium-text) !important;
+}
+
+body.erptronix-dark .text-muted,
+body.erptronix-dark .sidebar-label,
+body.erptronix-dark .form-message,
+body.erptronix-dark .help-box,
+body.erptronix-dark .comment-content,
+body.erptronix-dark .text-extra-muted,
+body.erptronix-dark .text-medium {
+  color: var(--erp-premium-muted) !important;
+}
+
+body.erptronix-dark input,
+body.erptronix-dark textarea,
+body.erptronix-dark select,
+body.erptronix-dark .control-input,
+body.erptronix-dark .input-with-feedback,
+body.erptronix-dark .awesomplete > input {
+  background: rgba(16, 27, 49, 0.78) !important;
+  color: var(--erp-premium-text) !important;
+  border: 1px solid var(--erp-premium-line) !important;
+}
+
+body.erptronix-dark .btn-default,
+body.erptronix-dark .btn-secondary {
+  background: rgba(16, 27, 49, 0.82) !important;
+  color: var(--erp-premium-text) !important;
+  border: 1px solid var(--erp-premium-line) !important;
+}
+
+body.erptronix-dark .standard-sidebar-item:hover {
+  background: rgba(79, 124, 255, 0.12) !important;
+}
+
+body.erptronix-dark .standard-sidebar .standard-sidebar-item.selected,
+body.erptronix-dark .standard-sidebar-item.selected {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.22),
+    rgba(79, 124, 255, 0.22),
+    rgba(34, 199, 242, 0.18)
+  ) !important;
+}
+
+/* ---------- Optional nice touches ---------- */
+
+.indicator-pill,
+.indicator,
+.ellipsis-pill {
+  border-radius: 999px !important;
+}
+
+.widget.number-widget-box {
+  overflow: hidden;
+}
+
+.form-tabs-list .form-tabs .nav-link,
+.nav-tabs .nav-link {
+  border-radius: 12px !important;
 }
