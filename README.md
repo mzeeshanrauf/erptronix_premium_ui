@@ -1,10 +1,8 @@
-# ERPTronix Premium UI v5
+# ERPTronix Premium UI v6
 
 Professional ERPNext v15 theme with:
-- improved form spacing
-- safer checkbox sizing
-- modern tabs
-- better list sidebar spacing
-- wider left menu
-- cleaner section headers
-- ERPTronix branding and logo replacement
+- corrected section spacing
+- sidebar selected gradient like action button
+- branding in navbar/sidebar
+- favicon support
+- safer form spacing across site

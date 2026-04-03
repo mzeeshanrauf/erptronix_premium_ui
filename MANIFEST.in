@@ -2,4 +2,4 @@ include README.md
 include requirements.txt
 include license.txt
 recursive-include erptronix_premium_ui *.py
-recursive-include erptronix_premium_ui/public *.js *.scss *.css *.svg *.png *.jpg *.jpeg *.gif *.webp
+recursive-include erptronix_premium_ui/public *.js *.scss *.css *.svg *.png *.jpg *.jpeg *.gif *.webp *.ico
