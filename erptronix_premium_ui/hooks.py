@@ -5,10 +5,6 @@ app_description = "Premium colorful UI theme for ERPNext / Frappe v15"
 app_email = "support@example.com"
 app_license = "MIT"
 
-app_include_css = [
-    "/assets/erptronix_premium_ui/css/premium_ui.css",
-]
-
-app_include_js = [
-    "/assets/erptronix_premium_ui/js/premium_ui.js",
-]
+# Use bundle entrypoints for Frappe v15 esbuild
+app_include_css = "erptronix_premium_ui.bundle.css"
+app_include_js = "erptronix_premium_ui.bundle.js"
