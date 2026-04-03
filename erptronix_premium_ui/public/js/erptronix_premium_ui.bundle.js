@@ -7,16 +7,15 @@
     return localStorage.getItem(STORAGE_KEY) === "1";
   }
 
-  function updateToggleLabel() {
-    const btn = document.querySelector(`.${TOGGLE_CLASS}`);
+  function updateButton(btn) {
     if (!btn) return;
-    btn.textContent = isDarkMode() ? "Light Mode" : "Dark Mode";
+    btn.textContent = isDarkMode() ? "Light" : "Dark";
     btn.title = isDarkMode() ? "Switch to light mode" : "Switch to dark mode";
   }
 
   function applyTheme() {
     document.body.classList.toggle("erptronix-dark", isDarkMode());
-    updateToggleLabel();
+    document.querySelectorAll("." + TOGGLE_CLASS).forEach(updateButton);
   }
 
   function toggleTheme() {
@@ -24,77 +23,47 @@
     applyTheme();
   }
 
-  function getNavbarContainer() {
-    return (
-      document.querySelector(".navbar .container") ||
-      document.querySelector(".navbar > .container-fluid") ||
-      document.querySelector("header .navbar .container") ||
-      document.querySelector(".navbar")
-    );
-  }
-
-  function createToggleButton() {
-    const btn = document.createElement("button");
-    btn.className = `btn btn-default btn-sm ${TOGGLE_CLASS}`;
-    btn.type = "button";
-    btn.style.marginLeft = "10px";
-    btn.style.borderRadius = "12px";
-    btn.style.whiteSpace = "nowrap";
-    btn.addEventListener("click", toggleTheme);
-    return btn;
+  function navbarContainer() {
+    return document.querySelector(".navbar .container, .navbar > .container-fluid, .navbar");
   }
 
   function ensureToggle() {
-    const navbar = getNavbarContainer();
-    if (!navbar) return;
-
-    let btn = navbar.querySelector(`.${TOGGLE_CLASS}`);
+    const nav = navbarContainer();
+    if (!nav) return;
+    let btn = nav.querySelector("." + TOGGLE_CLASS);
     if (!btn) {
-      btn = createToggleButton();
-      navbar.appendChild(btn);
+      btn = document.createElement("button");
+      btn.className = "btn btn-default btn-sm " + TOGGLE_CLASS;
+      btn.type = "button";
+      btn.style.marginLeft = "10px";
+      btn.style.borderRadius = "10px";
+      btn.style.whiteSpace = "nowrap";
+      btn.addEventListener("click", toggleTheme);
+      nav.appendChild(btn);
     }
-    updateToggleLabel();
+    updateButton(btn);
   }
 
-  function safeRefresh() {
+  function refresh() {
     applyTheme();
     ensureToggle();
   }
 
-  function setupObservers() {
-    if (observerStarted) return;
-    observerStarted = true;
+  frappe.ready(() => {
+    refresh();
 
-    const observer = new MutationObserver(() => {
-      ensureToggle();
-      document.body.classList.toggle("erptronix-dark", isDarkMode());
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-  }
-
-  function setupRouteHooks() {
-    if (window.frappe && frappe.router && typeof frappe.router.on === "function") {
-      frappe.router.on("change", () => {
-        setTimeout(safeRefresh, 200);
+    if (!observerStarted) {
+      observerStarted = true;
+      const observer = new MutationObserver(() => {
+        ensureToggle();
       });
+      observer.observe(document.body, { childList: true, subtree: true });
     }
 
-    document.addEventListener("page-change", () => {
-      setTimeout(safeRefresh, 200);
-    });
+    if (window.frappe && frappe.router && typeof frappe.router.on === "function") {
+      frappe.router.on("change", () => setTimeout(refresh, 120));
+    }
 
-    window.addEventListener("hashchange", () => {
-      setTimeout(safeRefresh, 200);
-    });
-  }
-
-  frappe.ready(() => {
-    safeRefresh();
-    setupObservers();
-    setupRouteHooks();
+    window.addEventListener("hashchange", () => setTimeout(refresh, 120));
   });
 })();

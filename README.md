@@ -1,15 +1,8 @@
-# Erptronix Premium UI
+# Erptronix Premium UI Targeted v3
 
-Modern premium UI theme app for Frappe / ERPNext v15.
-
-## Install from local folder
-```bash
-cd ~/v15-bench/apps
-rm -rf erptronix_premium_ui
-unzip /path/to/erptronix_premium_ui_repo_fixed.zip
-cd ~/v15-bench
-bench build --app erptronix_premium_ui
-bench --site yoursite install-app erptronix_premium_ui
-bench --site yoursite clear-cache
-bench restart
-```
+Targeted professional ERPNext v15 UI theme with fixes for:
+- dropdown clipping
+- input padding
+- sidebar/workspace spacing
+- better highlighted menu item
+- safer modal and child-table spacing

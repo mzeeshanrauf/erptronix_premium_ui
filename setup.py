@@ -5,8 +5,8 @@ with open("requirements.txt") as f:
 
 setup(
     name="erptronix_premium_ui",
-    version="0.0.1",
-    description="Modern premium UI theme for Frappe / ERPNext v15",
+    version="0.0.3",
+    description="Professional targeted UI theme for Frappe / ERPNext v15",
     author="Zeeshan",
     author_email="support@example.com",
     packages=find_packages(),
