@@ -1,9 +1,10 @@
-# Erptronix Premium UI Targeted v4
+# ERPTronix Premium UI v5
 
-Professional ERPNext v15 UI theme with fixes for:
-- normal checkbox sizes
-- modern tab style
-- list sidebar padding and spacing
-- wider left menu with better selected state spacing
-- dropdown clipping
-- safer inputs and child table spacing
+Professional ERPNext v15 theme with:
+- improved form spacing
+- safer checkbox sizing
+- modern tabs
+- better list sidebar spacing
+- wider left menu
+- cleaner section headers
+- ERPTronix branding and logo replacement
