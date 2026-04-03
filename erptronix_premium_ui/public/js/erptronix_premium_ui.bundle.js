@@ -7,16 +7,16 @@
     return localStorage.getItem(STORAGE_KEY) === "1";
   }
 
-  function applyTheme() {
-    document.body.classList.toggle("erptronix-dark", isDarkMode());
-    updateToggleLabel();
-  }
-
   function updateToggleLabel() {
     const btn = document.querySelector(`.${TOGGLE_CLASS}`);
     if (!btn) return;
     btn.textContent = isDarkMode() ? "Light Mode" : "Dark Mode";
     btn.title = isDarkMode() ? "Switch to light mode" : "Switch to dark mode";
+  }
+
+  function applyTheme() {
+    document.body.classList.toggle("erptronix-dark", isDarkMode());
+    updateToggleLabel();
   }
 
   function toggleTheme() {

@@ -112,12 +112,7 @@ a,
 }
 
 .btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--erp-premium-purple),
-    var(--erp-premium-blue),
-    var(--erp-premium-cyan)
-  ) !important;
+  background: linear-gradient(135deg, var(--erp-premium-purple), var(--erp-premium-blue), var(--erp-premium-cyan)) !important;
   border: none !important;
   color: #fff !important;
   box-shadow: 0 16px 32px rgba(79, 124, 255, 0.22) !important;
@@ -150,12 +145,7 @@ a,
 
 .standard-sidebar .standard-sidebar-item.selected,
 .standard-sidebar-item.selected {
-  background: linear-gradient(
-    135deg,
-    rgba(139, 92, 246, 0.14),
-    rgba(79, 124, 255, 0.14),
-    rgba(34, 199, 242, 0.14)
-  ) !important;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.14), rgba(79, 124, 255, 0.14), rgba(34, 199, 242, 0.14)) !important;
   color: var(--erp-premium-blue) !important;
   border-radius: 14px !important;
 }
@@ -298,12 +288,7 @@ body.erptronix-dark .standard-sidebar-item:hover {
 
 body.erptronix-dark .standard-sidebar .standard-sidebar-item.selected,
 body.erptronix-dark .standard-sidebar-item.selected {
-  background: linear-gradient(
-    135deg,
-    rgba(139, 92, 246, 0.22),
-    rgba(79, 124, 255, 0.22),
-    rgba(34, 199, 242, 0.18)
-  ) !important;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(79, 124, 255, 0.22), rgba(34, 199, 242, 0.18)) !important;
 }
 
 .indicator-pill,
